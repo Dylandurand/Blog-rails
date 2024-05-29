@@ -22,3 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+# Infos & Help Center
+- https://guides.rubyonrails.org/getting_started.html
+- https://rubydoc.info/gems/slim/frames
