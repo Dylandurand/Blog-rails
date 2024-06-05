@@ -2,7 +2,30 @@ h1 = @article.title
 
 p = @article.body
 
-div
-  = link_to "Edit", edit_article_path(@article)
-div
-  = link_to "Destroy", article_path(@article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }
+ul
+  li = link_to "Edit", edit_article_path(@article)
+  li = link_to "Destroy", article_path(@article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }
+
+h2 Comments
+- @article.comments.each do |comment|
+  p
+    strong Commenter:
+    = comment.commenter
+  p
+    strong Comment:
+    = comment.body
+
+h2 Add a comment:
+= form_with model: [ @article, @article.comments.build ] do |form|
+  p
+    div
+      = form.label :commenter
+    div
+      = form.text_field :commenter
+  p
+    div
+      = form.label :body
+    div
+      = form.text_area :body
+  p
+    = form.submit
