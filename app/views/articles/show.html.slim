@@ -8,24 +8,7 @@ ul
 
 h2 Comments
 - @article.comments.each do |comment|
-  p
-    strong Commenter:
-    = comment.commenter
-  p
-    strong Comment:
-    = comment.body
+  = render @article.comments
 
 h2 Add a comment:
-= form_with model: [ @article, @article.comments.build ] do |form|
-  p
-    div
-      = form.label :commenter
-    div
-      = form.text_field :commenter
-  p
-    div
-      = form.label :body
-    div
-      = form.text_area :body
-  p
-    = form.submit
+= render 'comments/form'
